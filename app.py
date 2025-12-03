@@ -6,7 +6,7 @@ import pickle
 model = pickle.load(open("gradient_boosting_regressor_model.pkl", "rb"))
 
 # App title
-st.title("Aplikasi Prediksi Harga Penutupan Crypto")
+st.title("Aplikasi Prediksi Harga Penutupan Crypto (Gradient Boosting Regressor)")
 st.write("Masukkan data untuk memprediksi nilai **close price**.")
 
 # Input dari user
