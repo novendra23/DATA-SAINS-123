@@ -20,7 +20,7 @@ open_val = st.sidebar.number_input("Open", value=0.0)
 high_val = st.sidebar.number_input("High", value=0.0)
 low_val = st.sidebar.number_input("Low", value=0.0)
 
-ticker_val = st.sidebar.selectbox("Ticker", ["ADA", "BTC"])
+ticker = st.selectbox("Pilih Crypto", ["BTC", "ETH", "ADA"]))
 
 # Define columns used during model training
 columns = [
@@ -44,9 +44,9 @@ input_df = pd.DataFrame({
     "high": [high_val],
     "low": [low_val],
     "volume": [volume_val],
-    "ticker_BTC": [1 if ticker == "BTC" else 0],
-    "ticker_ETH": [1 if ticker == "ETH" else 0],
-    "ticker_ADA": [1 if ticker == "ADA" else 0],
+    'ticker_BTC': [1 if ticker == 'BTC' else 0],
+    'ticker_ETH': [1 if ticker == 'ETH' else 0],
+    'ticker_ADA': [1 if ticker == 'ADA' else 0],
 })
 
 
