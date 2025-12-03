@@ -20,7 +20,7 @@ open_val = st.sidebar.number_input("Open", value=0.0)
 high_val = st.sidebar.number_input("High", value=0.0)
 low_val = st.sidebar.number_input("Low", value=0.0)
 
-ticker = st.selectbox("Pilih Crypto", ["BTC", "ETH", "ADA"]))
+ticker = st.selectbox("Pilih Crypto", ["BTC", "ETH", "ADA"])
 
 # Define columns used during model training
 columns = [
