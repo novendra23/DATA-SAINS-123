@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import sklearn
 
 # Load trained Random Forest model
 model = pickle.load(open("gradient_boosting_regressor_model.pkl", "rb"))
