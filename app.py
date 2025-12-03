@@ -36,6 +36,7 @@ input_df = pd.DataFrame({col: [0] for col in columns})
 input_df["open"] = open_val
 input_df["high"] = high_val
 input_df["low"] = low_val
+input_df["volume"] = volume_val
 
 # Populate categorical one-hot columns
 input_df = pd.DataFrame({
