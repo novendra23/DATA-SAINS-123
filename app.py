@@ -38,6 +38,7 @@ prediction = model.predict(input_df)[0]
 
 st.subheader("Hasil Prediksi")
 st.write(prediction)
-st.write("Model expects:", model.feature_names_in_)
-st.write("Input columns:", input_df.columns)
+st.write("Model expects:", getattr(model, "feature_names_in_", "unknown"))
+st.write("Input columns:", list(input_df.columns))
+
 
