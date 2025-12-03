@@ -36,14 +36,12 @@ input_df = pd.DataFrame({col: [0] for col in columns})
 input_df["open"] = open_val
 input_df["high"] = high_val
 input_df["low"] = low_val
-input_df["volume"] = volume_val
 
 # Populate categorical one-hot columns
 input_df = pd.DataFrame({
     'Open': [open_val],
     'High': [high_val],
     'Low': [low_val],
-    'Volume': [volume_val],
     'ticker_BTC': [1 if ticker=='BTC' else 0],
     'ticker_ETH': [1 if ticker=='ETH' else 0],
     'ticker_ADA': [1 if ticker=='ADA' else 0],
