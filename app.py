@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import sklearn
+import json
 
 # Load trained Random Forest model
 model = pickle.load(open("gradient_boosting_regressor_model.pkl", "rb"))
@@ -37,7 +38,15 @@ input_df["high"] = high_val
 input_df["low"] = low_val
 
 # Populate categorical one-hot columns
-input_df[f"ticker_{ticker_val}"] = 1
+input_df = pd.DataFrame({
+    'Open': [open_val],
+    'High': [high_val],
+    'Low': [low_val],
+    'Volume': [volume_val],
+    'ticker_BTC': [1 if ticker=='BTC' else 0],
+    'ticker_ETH': [1 if ticker=='ETH' else 0],
+    'ticker_ADA': [1 if ticker=='ADA' else 0],
+})
 
 # Prediction
 prediction = model.predict(input_df)[0]
@@ -45,3 +54,5 @@ prediction = model.predict(input_df)[0]
 st.subheader("Hasil Prediksi Harga Penutupan Crypto ADA dan BTC")
 st.write(prediction)
 
+# Simpan nama fitur
+json.dump(list(X_train.columns), open("feature_names.json", "w"))
