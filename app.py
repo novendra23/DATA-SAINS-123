@@ -1,17 +1,37 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import numpy as np
-import sklearn
-
 
 # Load trained model
 model = pickle.load(open("gradient_boosting_regressor_model.pkl", "rb"))
-ticker_USDT': ({[1 if ticker=="USDT" else 0],
+
+# App title
+st.title("Aplikasi Prediksi Harga Penutupan Crypto")
+st.write("Masukkan data untuk memprediksi nilai **close price**.")
+
+# Input dari user
+open_val = st.number_input("Open price")
+high_val = st.number_input("High price")
+low_val = st.number_input("Low price")
+volume_val = st.number_input("Volume")
+
+ticker = st.selectbox("Pilih Crypto", ["BTC", "ADA"])   # hanya yang ada di model
+
+# Hitung fitur turunan (HARUS sama seperti training!)
+daily_return = high_val - low_val        # contoh saja, sesuaikan training kamu
+range_val = high_val - low_val           # contoh saja, sesuaikan training kamu
+
+# Buat dataframe input SAMA persis dengan kolom training
+input_df = pd.DataFrame({
+    'open': [open_val],
+    'high': [high_val],
+    'low': [low_val],
+    'volume': [volume_val],
+    'ticker_BTC': [1 if ticker=="BTC" else 0],
+    'ticker_ETH': [1 if ticker=="ETH" else 0],
+    'ticker_USDT': [1 if ticker=="USDT" else 0],
 })
 
-# Hanya pakai kolom yang diperbolehkan model
-input_df = input_df[feature_names]
 def predict_price(input_df, model):
     """
     Fungsi ini menyamakan kolom input dengan kolom yang digunakan model saat training.
@@ -31,8 +51,6 @@ def predict_price(input_df, model):
         if col not in input_df.columns:
             input_df[col] = 0
 
-# Prediksi
-return model.predict(input_df)[0]
     # --- Buang kolom input yang tidak dikenali model ---
     input_df = input_df[feature_names]
 
@@ -43,6 +61,8 @@ return model.predict(input_df)[0]
     prediction_value = model.predict(input_df)[0]
 
     return prediction_value
+
+prediction = predict_price(input_df, model)
 
 st.subheader("Hasil Prediksi")
 
