@@ -23,10 +23,10 @@ range_val = high_val - low_val           # contoh saja, sesuaikan training kamu
 
 # Buat dataframe input SAMA persis dengan kolom training
 input_df = pd.DataFrame({
-    'open': [open_val],
-    'high': [high_val],
-    'low': [low_val],
-    'volume': [volume_val],
+    'open': [open_price],
+    'high': [high_price],
+    'low': [low_price],
+    'volume': [volume_price],
     'ticker_BTC': [1 if ticker=="BTC" else 0],
     'ticker_ETH': [1 if ticker=="ETH" else 0],
     'ticker_USDT': [1 if ticker=="USDT" else 0],
