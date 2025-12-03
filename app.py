@@ -7,7 +7,7 @@ import sklearn
 
 # Load trained model
 model = pickle.load(open("gradient_boosting_regressor_model.pkl", "rb"))
-    'ticker_USDT': [1 if ticker=="USDT" else 0],
+    'ticker_USDT': ({[1 if ticker=="USDT" else 0],
 })
 
 # Hanya pakai kolom yang diperbolehkan model
