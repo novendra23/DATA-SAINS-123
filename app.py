@@ -32,4 +32,11 @@ input_df = pd.DataFrame({
     'ticker_USDT': [1 if ticker=="USDT" else 0],
 })
 
+# Hanya pakai kolom yang diperbolehkan model
+input_df = input_df[feature_names]
+
+# Prediksi
+return model.predict(input_df)[0]
+
+
 st.subheader("Hasil Prediksi")
