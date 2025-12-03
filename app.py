@@ -7,9 +7,9 @@ import sklearn
 
 # Load trained model
 model = pickle.load(open("gradient_boosting_regressor_model.pkl", "rb"))
-@@ -32,11 +35,38 @@
+#@@ -32,11 +35,38 @@
     'ticker_USDT': [1 if ticker=="USDT" else 0],
-})
+)
 
 # Hanya pakai kolom yang diperbolehkan model
 input_df = input_df[feature_names]
