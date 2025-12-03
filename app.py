@@ -52,4 +52,3 @@ def predict_price(input_df, model):
 
 
 st.subheader("Hasil Prediksi")
-st.write(prediction)
