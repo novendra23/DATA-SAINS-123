@@ -23,7 +23,7 @@ range_val = high_val - low_val           # contoh saja, sesuaikan training kamu
 
 # Buat dataframe input SAMA persis dengan kolom training
 input_df = pd.DataFrame({
-    'open': [open_price],
+    'open': [open_val],
     'high': [high_price],
     'low': [low_price],
     'volume': [volume_price],
