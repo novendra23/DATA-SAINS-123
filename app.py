@@ -31,12 +31,5 @@ input_df = pd.DataFrame({
     'ticker_ETH': [1 if ticker=="ETH" else 0],
     'ticker_USDT': [1 if ticker=="USDT" else 0],
 })
-# Debug untuk melihat fitur model & input
-st.write("Model expects:", getattr(model, "feature_names_in_", "unknown"))
-st.write("Input columns:", list(input_df.columns))
-
-# Prediction
-prediction = model.predict(input_df)[0]
 
 st.subheader("Hasil Prediksi")
-st.write(prediction)
