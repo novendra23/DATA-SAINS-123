@@ -34,7 +34,7 @@ input_df = pd.DataFrame({
 })
 
 # Prediksi
-prediction = model.predict(input_df)[100]
+prediction = model.predict(input_df)[0]
 
 st.subheader("Hasil Prediksi")
 st.write(prediction)
