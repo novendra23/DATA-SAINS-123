@@ -23,18 +23,21 @@ range_val = high_val - low_val           # contoh saja, sesuaikan training kamu
 
 # Buat dataframe input SAMA persis dengan kolom training
 input_df = pd.DataFrame({
-    "open": [open_val],
-    "high": [high_val],
-    "low": [low_val],
-    "volume": [volume_val],
-    "daily_return": [daily_return],
-    "range": [range_val],
-    "ticker_ADA": [1 if ticker == "ADA" else 0],
-    "ticker_BTC": [1 if ticker == "BTC" else 0],
+    'open': [open_price],
+    'high': [high_price],
+    'low': [low_price],
+    'volume': [volume_number],
+    'ticker_BTC': [1 if ticker=="BTC" else 0],
+    'ticker_ETH': [1 if ticker=="ETH" else 0],
+    'ticker_USDT': [1 if ticker=="USDT" else 0],
 })
+
 
 # Prediksi
 prediction = model.predict(input_df)[0]
 
 st.subheader("Hasil Prediksi")
 st.write(prediction)
+st.write("Model expects:", model.feature_names_in_)
+st.write("Input columns:", input_df.columns)
+
