@@ -26,7 +26,7 @@ input_df = pd.DataFrame({
     'open': [open_val],
     'high': [high_val],
     'low': [low_val],
-    'volume': [volume_price],
+    'volume': [volume_val],
     'ticker_BTC': [1 if ticker=="BTC" else 0],
     'ticker_ETH': [1 if ticker=="ETH" else 0],
     'ticker_USDT': [1 if ticker=="USDT" else 0],
